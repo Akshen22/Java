@@ -1,39 +1,23 @@
-package abstractKey;
+package boxing;
 
-/* If a class is not having any abstract method
- * then it is possible to have no abstract method
- * 
- *  But if a class have one or more abstract method
- *  then class should be abstract.
- * */
-abstract class Car{
-	abstract void start();// Abstract method must be implemented 
-						// in subclasses
-}
-class Audi extends Car{
-	@Override
-	 void start(){
-			System.out.println("Audi Car ");
-		}
-}
-class BMW extends Car{
-	@Override
-	 void start(){
-			System.out.println("BMW Car");
-		}
-}
-class Drive{
-	void drive(Car c) {
-		c.start();
-	}
-}
+//In Java, values from -128 to 127 are cached, 
+//so the same objects are returned. 
+//The implementation of valueOf() uses cached 
+//objects if the value is between -128 to 127.
 
 public class Example1 {
-
-	public static void main(String[] args) {
-		Drive d=new Drive();
-		d.drive(new Audi());
-		d.drive(new BMW());
+	
+	public static String compareWc(Integer x,Integer y){
+		return (x==y)?"Same":"Not same";
 	}
 
+	public static void main(String[] args) {
+		Integer x = 40, y = 40;
+		Integer a=400, b=400;
+		Integer m=new Integer(40);
+		Integer n=new Integer(40);
+		System.out.println("40 , 40 Interger are: "+compareWc(x, y));
+		System.out.println("400 , 400 Interger are: "+compareWc(a, b));
+		System.out.println("40 , 40 Interger on explicit object creation : "+compareWc(m, n));
+	}
 }
